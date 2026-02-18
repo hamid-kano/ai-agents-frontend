@@ -46,7 +46,11 @@ export default function Home() {
           ) : (
             filteredArticles.map((article: any) => (
               <div key={article.id} className="bg-slate-800/50 backdrop-blur-xl rounded-2xl shadow-2xl border border-purple-500/20 p-6 hover:border-cyan-500/40 transition-all">
-                <h2 className="text-2xl font-bold mb-3 bg-gradient-to-r from-cyan-300 to-purple-300 bg-clip-text text-transparent">{article.topic}</h2>
+                <div className="prose prose-invert max-w-none mb-3
+                  prose-strong:text-cyan-300 prose-strong:font-bold
+                  prose-p:text-gray-200 prose-p:mb-0">
+                  <ReactMarkdown>{article.topic}</ReactMarkdown>
+                </div>
                 <div className="text-gray-300 mb-4 line-clamp-3 prose prose-invert prose-sm max-w-none">
                   <ReactMarkdown>{`${article.content.substring(0, 200)}...`}</ReactMarkdown>
                 </div>
