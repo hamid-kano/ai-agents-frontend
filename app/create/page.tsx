@@ -29,33 +29,33 @@ export default function CreateArticle() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <nav className="bg-white shadow-sm border-b">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <nav className="bg-black/30 backdrop-blur-lg border-b border-purple-500/20">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-slate-800">مدونة تقنية AI</h1>
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">مدونة تقنية AI</h1>
         </div>
       </nav>
 
       <main className="max-w-2xl mx-auto px-4 py-8">
-        <div className="bg-white rounded-lg shadow-sm border p-8">
-          <h2 className="text-3xl font-bold mb-6 text-slate-800">خبر تقني جديد</h2>
+        <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl shadow-2xl border border-purple-500/20 p-8">
+          <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-cyan-300 to-purple-300 bg-clip-text text-transparent">خبر تقني جديد</h2>
 
           <form onSubmit={handleSubmit}>
             <div className="mb-6">
-              <label className="block text-slate-700 font-bold mb-2">موضوع الخبر التقني</label>
+              <label className="block text-cyan-300 font-bold mb-2">موضوع الخبر التقني</label>
               <input
                 type="text"
                 value={topic}
                 onChange={(e) => setTopic(e.target.value)}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                className="w-full px-4 py-3 bg-slate-900/50 border border-purple-500/30 rounded-lg focus:outline-none focus:border-cyan-500 text-gray-200"
                 placeholder="مثال: تحديثات ChatGPT الجديدة، إطلاق iPhone 16، تقنية الكم"
               />
             </div>
 
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-              <p className="text-sm text-blue-900 font-semibold mb-2">ملاحظة: سيقوم الوكلاء الأذكياء بـ:</p>
-              <ul className="text-sm text-blue-800 mr-4 list-disc space-y-1">
+            <div className="bg-gradient-to-r from-purple-900/50 to-cyan-900/50 border border-cyan-500/30 rounded-xl p-4 mb-6">
+              <p className="text-sm text-cyan-300 font-semibold mb-2">ملاحظة: سيقوم الوكلاء الأذكياء بـ:</p>
+              <ul className="text-sm text-gray-300 mr-4 list-disc space-y-1">
                 <li>البحث عن آخر الأخبار والتحديثات</li>
                 <li>كتابة خبر مختصر ومباشر</li>
                 <li>مراجعة الدقة والوضوح</li>
@@ -66,7 +66,7 @@ export default function CreateArticle() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
               {loading ? 'جاري كتابة الخبر...' : 'إنشاء خبر تقني بالذكاء الاصطناعي'}
             </button>
