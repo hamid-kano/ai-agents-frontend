@@ -51,13 +51,13 @@ export default function ArticlePage() {
             </div>
           )}
 
-          <div className="prose prose-xl prose-invert max-w-none
+          <div className="prose prose-xl prose-invert max-w-none [&>p]:mb-8 [&>p]:leading-relaxed
             prose-headings:font-bold prose-headings:mb-6 prose-headings:mt-10
             prose-h1:text-5xl prose-h1:leading-tight prose-h1:bg-gradient-to-r prose-h1:from-cyan-300 prose-h1:to-purple-300 prose-h1:bg-clip-text prose-h1:text-transparent
             prose-h2:text-4xl prose-h2:leading-snug prose-h2:bg-gradient-to-r prose-h2:from-cyan-300 prose-h2:to-purple-300 prose-h2:bg-clip-text prose-h2:text-transparent
             prose-h3:text-3xl prose-h3:leading-snug prose-h3:text-cyan-300
             prose-h4:text-2xl prose-h4:text-purple-300
-            prose-p:text-gray-200 prose-p:text-lg prose-p:leading-loose prose-p:mb-6
+            [&>p]:text-gray-200 [&>p]:text-lg
             prose-strong:text-cyan-300 prose-strong:font-bold
             prose-ul:text-gray-200 prose-ul:text-lg prose-ul:leading-relaxed prose-ul:space-y-3 prose-ul:my-6
             prose-ol:text-gray-200 prose-ol:text-lg prose-ol:leading-relaxed prose-ol:space-y-3 prose-ol:my-6
