@@ -29,48 +29,46 @@ export default function CreateArticle() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white shadow-lg">
+    <div className="min-h-screen bg-slate-50">
+      <nav className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-blue-600">مدونة تقنية AI</h1>
+          <h1 className="text-2xl font-bold text-slate-800">مدونة تقنية AI</h1>
         </div>
       </nav>
 
       <main className="max-w-2xl mx-auto px-4 py-8">
-        <div className="bg-white rounded-lg shadow p-8">
-          <h2 className="text-2xl font-bold mb-6">إنشاء مقال جديد</h2>
+        <div className="bg-white rounded-lg shadow-sm border p-8">
+          <h2 className="text-3xl font-bold mb-6 text-slate-800">خبر تقني جديد</h2>
 
           <form onSubmit={handleSubmit}>
             <div className="mb-6">
-              <label className="block text-gray-700 font-bold mb-2">موضوع المقال</label>
+              <label className="block text-slate-700 font-bold mb-2">موضوع الخبر التقني</label>
               <input
                 type="text"
                 value={topic}
                 onChange={(e) => setTopic(e.target.value)}
                 required
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-                placeholder="مثال: مستقبل الذكاء الاصطناعي في البرمجة"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                placeholder="مثال: تحديثات ChatGPT الجديدة، إطلاق iPhone 16، تقنية الكم"
               />
             </div>
 
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-              <p className="text-sm text-blue-800">
-                <strong>ملاحظة:</strong> سيقوم الوكلاء الأذكياء بـ:
-              </p>
-              <ul className="text-sm text-blue-700 mt-2 mr-4 list-disc">
-                <li>البحث عن الموضوع</li>
-                <li>كتابة مقال شامل</li>
-                <li>تحرير ومراجعة المحتوى</li>
-                <li>تحسين SEO</li>
+              <p className="text-sm text-blue-900 font-semibold mb-2">ملاحظة: سيقوم الوكلاء الأذكياء بـ:</p>
+              <ul className="text-sm text-blue-800 mr-4 list-disc space-y-1">
+                <li>البحث عن آخر الأخبار والتحديثات</li>
+                <li>كتابة خبر مختصر ومباشر</li>
+                <li>مراجعة الدقة والوضوح</li>
+                <li>تحسين SEO للخبر</li>
               </ul>
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 font-bold disabled:bg-gray-400"
+              className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              {loading ? 'جاري الإنشاء...' : 'إنشاء المقال بالذكاء الاصطناعي'}
+              {loading ? 'جاري كتابة الخبر...' : 'إنشاء خبر تقني بالذكاء الاصطناعي'}
             </button>
           </form>
         </div>
