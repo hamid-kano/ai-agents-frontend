@@ -45,19 +45,24 @@ export default function Home() {
             </div>
           ) : (
             filteredArticles.map((article: any) => (
-              <div key={article.id} className="bg-slate-800/50 backdrop-blur-xl rounded-2xl shadow-2xl border border-purple-500/20 p-6 hover:border-cyan-500/40 transition-all">
-                <div className="prose prose-invert max-w-none mb-3
-                  prose-strong:text-cyan-300 prose-strong:font-bold
-                  prose-p:text-gray-200 prose-p:mb-0">
-                  <ReactMarkdown>{article.topic}</ReactMarkdown>
+              <div key={article.id} className="bg-slate-800/50 backdrop-blur-xl rounded-2xl shadow-2xl border border-purple-500/20 overflow-hidden hover:border-cyan-500/40 transition-all">
+                {article.image_url && (
+                  <img src={article.image_url} alt="صورة الخبر" className="w-full h-48 object-cover" />
+                )}
+                <div className="p-6">
+                  <div className="prose prose-invert max-w-none mb-3
+                    prose-strong:text-cyan-300 prose-strong:font-bold
+                    prose-p:text-gray-200 prose-p:mb-0">
+                    <ReactMarkdown>{article.topic}</ReactMarkdown>
+                  </div>
+                  <div className="text-gray-300 mb-4 line-clamp-3 prose prose-invert prose-sm max-w-none">
+                    <ReactMarkdown>{`${article.content.substring(0, 200)}...`}</ReactMarkdown>
+                  </div>
+                  <Link href={`/article/${article.id}`} className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors font-medium">
+                    <span>قراءة المزيد</span>
+                    <span>←</span>
+                  </Link>
                 </div>
-                <div className="text-gray-300 mb-4 line-clamp-3 prose prose-invert prose-sm max-w-none">
-                  <ReactMarkdown>{`${article.content.substring(0, 200)}...`}</ReactMarkdown>
-                </div>
-                <Link href={`/article/${article.id}`} className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors font-medium">
-                  <span>قراءة المزيد</span>
-                  <span>←</span>
-                </Link>
               </div>
             ))
           )}

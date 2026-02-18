@@ -27,13 +27,17 @@ export default function ArticlePage() {
       </nav>
 
       <main className="max-w-4xl mx-auto px-4 py-8">
-        <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl shadow-2xl border border-purple-500/20 p-8">
-          <div className="prose prose-invert max-w-none mb-6
-            prose-h1:text-4xl prose-h1:font-bold prose-h1:bg-gradient-to-r prose-h1:from-cyan-300 prose-h1:via-purple-300 prose-h1:to-pink-300 prose-h1:bg-clip-text prose-h1:text-transparent
-            prose-strong:text-cyan-300 prose-strong:font-bold
-            prose-p:text-gray-200 prose-p:mb-0">
-            <ReactMarkdown>{article.topic}</ReactMarkdown>
-          </div>
+        <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl shadow-2xl border border-purple-500/20 overflow-hidden">
+          {article.image_url && (
+            <img src={article.image_url} alt="صورة الخبر" className="w-full h-64 object-cover" />
+          )}
+          <div className="p-8">
+            <div className="prose prose-invert max-w-none mb-6
+              prose-h1:text-4xl prose-h1:font-bold prose-h1:bg-gradient-to-r prose-h1:from-cyan-300 prose-h1:via-purple-300 prose-h1:to-pink-300 prose-h1:bg-clip-text prose-h1:text-transparent
+              prose-strong:text-cyan-300 prose-strong:font-bold
+              prose-p:text-gray-200 prose-p:mb-0">
+              <ReactMarkdown>{article.topic}</ReactMarkdown>
+            </div>
 
           {article.seo_data && (
             <div className="bg-gradient-to-r from-purple-900/50 to-cyan-900/50 border border-cyan-500/30 rounded-xl p-6 mb-8">
@@ -72,6 +76,7 @@ export default function ArticlePage() {
             </Link>
           </div>
         </div>
+      </div>
       </main>
     </div>
   );
