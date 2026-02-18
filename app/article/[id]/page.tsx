@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export default function ArticlePage() {
   const params = useParams();
@@ -15,7 +16,7 @@ export default function ArticlePage() {
       .then(data => setArticle(data));
   }, [params.id]);
 
-  if (!article) return <div className="text-center py-12">جاري التحميل...</div>;
+  if (!article) return <div className="text-center py-12 text-gray-400">جاري التحميل...</div>;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
@@ -33,7 +34,10 @@ export default function ArticlePage() {
 
           {article.seo_data && (
             <div className="bg-gradient-to-r from-purple-900/50 to-cyan-900/50 border border-cyan-500/30 rounded-xl p-6 mb-8">
-              <h3 className="font-bold mb-3 text-cyan-300 text-lg">معلومات SEO:</h3>
+              <h3 className="font-bold mb-3 text-cyan-300 text-lg flex items-center gap-2">
+                <Sparkles size={20} />
+                <span>معلومات SEO:</span>
+              </h3>
               <div className="text-sm text-gray-300 prose prose-invert prose-sm max-w-none">
                 <ReactMarkdown>{article.seo_data.suggestions}</ReactMarkdown>
               </div>
@@ -60,7 +64,7 @@ export default function ArticlePage() {
 
           <div className="mt-8 pt-6 border-t border-purple-500/20">
             <Link href="/" className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors">
-              <span>←</span>
+              <ArrowRight size={18} />
               <span>العودة للمقالات</span>
             </Link>
           </div>

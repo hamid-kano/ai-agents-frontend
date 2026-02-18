@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Sparkles } from 'lucide-react';
 
 export default function CreateArticle() {
   const [topic, setTopic] = useState('');
@@ -66,9 +67,10 @@ export default function CreateArticle() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
             >
-              {loading ? 'جاري كتابة الخبر...' : 'إنشاء خبر تقني بالذكاء الاصطناعي'}
+              <Sparkles size={20} />
+              <span>{loading ? 'جاري كتابة الخبر...' : 'إنشاء خبر تقني بالذكاء الاصطناعي'}</span>
             </button>
           </form>
         </div>
