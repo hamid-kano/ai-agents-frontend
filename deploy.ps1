@@ -7,12 +7,9 @@ Write-Host "[1/4] Updating Next.js config..." -ForegroundColor Yellow
 
 $nextConfig = @"
 const nextConfig = {
-  output: 'export',
   images: {
     unoptimized: true
   },
-  basePath: '',
-  assetPrefix: '',
 };
 
 export default nextConfig;
