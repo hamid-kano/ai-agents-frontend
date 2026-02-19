@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import { Search, Loader2, PenLine, ArrowRight } from 'lucide-react';
+import { api } from '@/lib/api';
 
 export default function NewsPage() {
   const [news, setNews] = useState<any[]>([]);
@@ -13,7 +14,7 @@ export default function NewsPage() {
   const discoverNews = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/news/discover');
+      const res = await fetch(api.news.discover);
       const data = await res.json();
       const newsItems = data.news.split('\n').filter((n: string) => n.trim());
       setNews(newsItems);
@@ -26,7 +27,7 @@ export default function NewsPage() {
   const createArticle = async (newsTitle: string, index: number) => {
     setCreatingIndex(index);
     try {
-      const res = await fetch(`/api/news/create/${encodeURIComponent(newsTitle)}`, {
+      const res = await fetch(api.news.create(newsTitle), {
         method: 'POST'
       });
       const article = await res.json();

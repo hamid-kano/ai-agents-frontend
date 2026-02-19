@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Sparkles } from 'lucide-react';
+import { api } from '@/lib/api';
 
 export default function CreateArticle() {
   const [topic, setTopic] = useState('');
@@ -14,7 +15,7 @@ export default function CreateArticle() {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/articles', {
+      const res = await fetch(api.articles, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic })

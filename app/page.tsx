@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import { Search, PenLine } from 'lucide-react';
+import { api } from '@/lib/api';
 
 export default function Home() {
   const [articles, setArticles] = useState([]);
   const [filteredArticles, setFilteredArticles] = useState([]);
 
   useEffect(() => {
-    fetch('/api/articles')
+    fetch(api.articles)
       .then(res => res.json())
       .then(data => {
         setArticles(data.data || []);

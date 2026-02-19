@@ -5,13 +5,14 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { api } from '@/lib/api';
 
 export default function ArticlePage() {
   const params = useParams();
   const [article, setArticle] = useState<any>(null);
 
   useEffect(() => {
-    fetch(`/api/articles/${params.id}`)
+    fetch(api.article(Number(params.id)))
       .then(res => res.json())
       .then(data => setArticle(data));
   }, [params.id]);
