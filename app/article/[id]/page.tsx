@@ -11,7 +11,7 @@ export default function ArticlePage() {
   const [article, setArticle] = useState<any>(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/articles/${params.id}`)
+    fetch(`/api/articles/${params.id}`)
       .then(res => res.json())
       .then(data => setArticle(data));
   }, [params.id]);

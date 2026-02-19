@@ -10,7 +10,7 @@ export default function Home() {
   const [filteredArticles, setFilteredArticles] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/articles')
+    fetch('/api/articles')
       .then(res => res.json())
       .then(data => {
         setArticles(data.data || []);

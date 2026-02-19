@@ -13,7 +13,7 @@ export default function NewsPage() {
   const discoverNews = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/api/news/discover');
+      const res = await fetch('/api/news/discover');
       const data = await res.json();
       const newsItems = data.news.split('\n').filter((n: string) => n.trim());
       setNews(newsItems);
@@ -26,7 +26,7 @@ export default function NewsPage() {
   const createArticle = async (newsTitle: string, index: number) => {
     setCreatingIndex(index);
     try {
-      const res = await fetch(`http://localhost:8000/api/news/create/${encodeURIComponent(newsTitle)}`, {
+      const res = await fetch(`/api/news/create/${encodeURIComponent(newsTitle)}`, {
         method: 'POST'
       });
       const article = await res.json();
