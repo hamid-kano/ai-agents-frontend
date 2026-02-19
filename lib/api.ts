@@ -1,4 +1,4 @@
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost/ai-agents/public';
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://lightslategrey-gorilla-734246.hostingersite.com';
 
 export const api = {
   articles: `${API_BASE_URL}/api/articles`,
