@@ -29,29 +29,19 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 # Step 3: Copy to Laravel
-Write-Host "`n[3/4] Copying to Laravel public..." -ForegroundColor Yellow
-Copy-Item -Path "out\*" -Destination "..\ai-agents\public\" -Recurse -Force
+Write-Host "`n[3/4] Copying Next.js files..." -ForegroundColor Yellow
+Copy-Item -Path ".next" -Destination "..\ai-agents\frontend\.next" -Recurse -Force
+Copy-Item -Path "public" -Destination "..\ai-agents\frontend\public" -Recurse -Force
+Copy-Item -Path "package.json" -Destination "..\ai-agents\frontend\" -Force
+Copy-Item -Path "next.config.ts" -Destination "..\ai-agents\frontend\" -Force
 
-# Step 4: Update .htaccess
-Write-Host "`n[4/4] Updating .htaccess..." -ForegroundColor Yellow
-$htaccess = @"
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-
-    RewriteCond %{REQUEST_FILENAME} -f
-    RewriteRule ^ - [L]
-
-    RewriteRule ^api/(.*)$ index.php [L]
-
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^ index.php [L]
-</IfModule>
-"@
-Set-Content -Path "..\ai-agents\public\.htaccess" -Value $htaccess
+# Step 4: Instructions
+Write-Host "`n[4/4] Done!" -ForegroundColor Yellow
 
 Write-Host "`n========================================" -ForegroundColor Green
 Write-Host "  Deployment Complete!" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Green
-Write-Host "`nNow upload ai-agents folder to hosting`n" -ForegroundColor White
+Write-Host "`nNext.js requires Node.js server on Hostinger" -ForegroundColor Yellow
+Write-Host "Upload ai-agents folder and run: npm install && npm start`n" -ForegroundColor White
 
 Read-Host "Press Enter to exit"
